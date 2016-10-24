@@ -57,6 +57,7 @@ void jsh_repl(FILE *input, bool quiet)
 		}
 		// fprintf(stderr, "Get line: %s\n", line);
 	    char **token = tokenize_line(line);
+		// for (int i = 0; token[i]; ++i) fprintf(stderr, "Token #%d: %s", i, token[i]);
 
 		exec(token);
 

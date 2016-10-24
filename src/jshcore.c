@@ -69,7 +69,7 @@ char **tokenize_line(char *line)
 		tok_buf[tok_buf_index++] = current_token;
 		current_token = strtok(NULL, TOKEN_DELIMETERS);
 	}
-	tok_buf[tok_buf_index] = current_token;
+	tok_buf[tok_buf_index] = NULL;
 	return tok_buf;
 }
 
