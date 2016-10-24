@@ -3,11 +3,13 @@
 #define __CONFIG_H__
 
 #define SHELL_NAME "JamesShell"
+#define SHELL_SHORT_NAME "jsh"
 #define SHELL_DESCRIPTION "A simple and naive shell implementation by James Swineson."
+#define SHELL_URL "https://github.com/Jamesits/JamesShell"
 
 #define VERSION_MAJOR 0
 #define VERSION_MINOR 0
-#define VERSION_REVISION 1
+#define VERSION_REVISION 2
 
 #define DEFAULT_PS1 "Jsh> "
 

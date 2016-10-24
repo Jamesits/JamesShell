@@ -9,7 +9,6 @@ internal_command builtins[] = {
 
 int jsh_exit(int argc, char **argv)
 {
-	// printf("quitting...\n");
 	config.shuttingdown = true;
 	return 0;
 }
@@ -17,9 +16,10 @@ int jsh_exit(int argc, char **argv)
 int jsh_about(int argc, char **argv)
 {
 	fprintf(config.f_out,
-		SHELL_NAME
-		" Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n"
+		SHELL_NAME "(" SHELL_SHORT_NAME ")\n"
+		"Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n\n"
 		SHELL_DESCRIPTION "\n"
+        SHELL_URL "\n\n"
 		);
 	return 0;
 }
@@ -27,6 +27,5 @@ int jsh_about(int argc, char **argv)
 // this is executed if a line is empty
 int empty_input_wrapper(int argc, char **argv)
 {
-	fputc('\n', config.f_out);
 	return 0;
 }

@@ -23,6 +23,12 @@ char *freadline(FILE *src)
 		}
 		// read a char
 		current_char = fgetc(src);
+		// if reached file end
+		if (current_char == EOF && buffer_index == 0)
+		{
+			free(read_buffer);
+			return NULL;
+		}
 		// if reached line end then fill buffer end 0 and return
 		if (current_char == EOF || current_char == '\n')
 		{
@@ -37,6 +43,11 @@ char *freadline(FILE *src)
 
 char **tokenize_line(char *line)
 {
+	// if got a empty line
+	if (!strlen(line))
+	{
+		return NULL;
+	}
 	char **tok_buf = NULL;
 	size_t tok_buf_size = 0;
 	size_t tok_buf_index = 0;
@@ -61,7 +72,6 @@ char **tokenize_line(char *line)
 	tok_buf[tok_buf_index] = current_token;
 	return tok_buf;
 }
-
 
 int exec(char **tokens)
 {

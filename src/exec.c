@@ -24,19 +24,19 @@ int ext_exec(int argc, char **argv)
 	int status;
 
 	pid = fork();
-	if (pid == 0) 
+	if (pid == 0)
 	{
 		// Child process
-		if (execvp(argv[0], argv) == -1) 
+		if (execvp(argv[0], argv) == -1)
 		{
-			perror("jsh cannot execvp");
+			perror("jsh");
 		}
 		exit(EXIT_FAILURE);
 	}
 	else if (pid < 0)
 	{
 		// Error forking
-		perror("jsh cannot fork");
+		perror("jsh");
 	}
 	else
 	{

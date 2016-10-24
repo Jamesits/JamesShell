@@ -20,6 +20,11 @@ int main(int argc, char **argv)
 	do {
 		printf(DEFAULT_PS1);
 		char *line = freadline(stdin);
+		if (!line)
+		{
+			config.shuttingdown = true;
+			continue;
+		}
 
 		// fprintf(stderr, "Get line: %s\n", line);
 	    char **token = tokenize_line(line);
