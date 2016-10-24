@@ -5,7 +5,6 @@ internal_command builtins[] = {
         BUILTIN_DEF(jsh_exit, "exit"),
         BUILTIN_DEF(ext_exec, "call"),
         BUILTIN_DEF(jsh_about, "about"),
-        {0, 0, 0}
 };
 
 int builtins_count() { return sizeof(builtins) / sizeof(builtins[0]); }
