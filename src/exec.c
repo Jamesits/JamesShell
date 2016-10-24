@@ -20,6 +20,9 @@ int int_exec(int argc, char **argv)
 
 int ext_exec(int argc, char **argv)
 {
+	if (!argc)
+		while (argv[argc++]);
+
 	pid_t pid, wpid;
 	int status;
 
