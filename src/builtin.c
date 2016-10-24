@@ -8,6 +8,8 @@ internal_command builtins[] = {
         {0, 0, 0}
 };
 
+int builtins_count() { return sizeof(builtins) / sizeof(builtins[0]); }
+
 int jsh_cd(int argc, char **argv)
 {
     if (argc == 0)

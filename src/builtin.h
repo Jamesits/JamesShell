@@ -12,13 +12,14 @@ typedef struct icmd {
 
 #define BUILTIN_DEF(FUNC, CMD) { FUNC, sizeof(CMD), CMD }
 
+extern internal_command builtins[];
+int builtins_count();
+int empty_input_wrapper(int argc, char **argv);
+
 int jsh_cd(int argc, char **argv);
 int jsh_exit(int argc, char **argv);
 int jsh_about(int argc, char **argv);
 int int_exec(int argc, char **argv);
 int ext_exec(int argc, char **argv);
-int empty_input_wrapper(int argc, char **argv);
-
-extern internal_command builtins[];
 
 #endif

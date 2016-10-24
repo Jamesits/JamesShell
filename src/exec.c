@@ -2,14 +2,12 @@
 
 int int_exec(int argc, char **argv)
 {
-	if (argv == NULL)
+	if (!argc)
 	{
 		empty_input_wrapper(argc, argv);
 		return 1;
 	}
-	if (!argc)
-		while (argv[argc++]);
-	for (int i = 0; builtins[i].length; ++i)
+	for (int i = 0; i < builtins_count(); ++i)
 		if (!strcmp(argv[0], builtins[i].command))
 		{
 			config.last_return_value = (builtins[i].function)(argc, argv);
@@ -20,9 +18,6 @@ int int_exec(int argc, char **argv)
 
 int ext_exec(int argc, char **argv)
 {
-	if (!argc)
-		while (argv[argc++]);
-
 	pid_t pid, wpid;
 	int status;
 

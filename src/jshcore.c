@@ -75,10 +75,9 @@ char **tokenize_line(char *line)
 
 int exec(char **tokens)
 {
-	// check if it is a builtin function, if true, execute it
-	if (int_exec(0, tokens)) {}
-	// check if it is an external program, if true, execute it
-	else if (ext_exec(0, tokens)) {}
-	else fprintf(config.f_err, "Not an internal or external command\n");
+	int token_count = 0;
+	if (tokens) while (tokens[token_count++]);
+	if (!int_exec(token_count, tokens))
+		ext_exec(token_count, tokens);
 	return 0;
 }
