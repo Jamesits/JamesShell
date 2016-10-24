@@ -1,11 +1,28 @@
 #include "stdafx.h"
 
 internal_command builtins[] = {
+        BUILTIN_DEF(jsh_cd, "cd"),
         BUILTIN_DEF(jsh_exit, "exit"),
         BUILTIN_DEF(ext_exec, "call"),
         BUILTIN_DEF(jsh_about, "about"),
         {0, 0, 0}
 };
+
+int jsh_cd(int argc, char **argv)
+{
+    if (argc == 0)
+    {
+        if (chdir(getenv("HOME")) != 0) {
+            perror("cd");
+        }
+    }
+    else {
+        if (chdir(argv[1]) != 0) {
+            perror("cd");
+        }
+    }
+    return 0;
+}
 
 int jsh_exit(int argc, char **argv)
 {

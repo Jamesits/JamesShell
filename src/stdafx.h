@@ -7,6 +7,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <unistd.h>
+#include <wordexp.h>
 #include <sys/wait.h>
 
 #include "config.h"
