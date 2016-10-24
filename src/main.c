@@ -23,16 +23,16 @@ int main(int argc, char **argv)
 
 		// fprintf(stderr, "Get line: %s\n", line);
 	    char **token = tokenize_line(line);
-		
-		// for (int i = 0; token[i]; ++i) fprintf(stderr, "Token #%d: %s\n", i, token[i]);
-		fprintf(stderr, "Before exec: quit = %d\n", config.shuttingdown);
+
 		exec(token);
-		fprintf(stderr, "After exec: quit = %d\n", config.shuttingdown);
 
 		free(token);
 		free(line);
+
+		// check return status;
+		fprintf(stderr, "Return value: %d\n", config.last_return_value);
+
 	} while(!config.shuttingdown) ;
-	// check return status;
 	
 	return EXIT_SUCCESS;
 }

@@ -12,7 +12,7 @@ int int_exec(int argc, char **argv)
 	for (int i = 0; builtins[i].length; ++i)
 		if (!strcmp(argv[0], builtins[i].command))
 		{
-			(builtins[i].function)(argc, argv);
+			config.last_return_value = (builtins[i].function)(argc, argv);
 			return 1;
 		}
 	return 0;

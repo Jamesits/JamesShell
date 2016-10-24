@@ -9,7 +9,7 @@ internal_command builtins[] = {
 
 int jsh_exit(int argc, char **argv)
 {
-	printf("quitting...\n");
+	// printf("quitting...\n");
 	config.shuttingdown = true;
 	return 0;
 }
