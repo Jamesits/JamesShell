@@ -13,7 +13,6 @@
 #include "util.h"
 #include "main.h"
 #include "jsh.h"
-#include "icmd.h"
 #include "builtin.h"
 
 #endif
