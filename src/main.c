@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 	// load config;
 	initialize_config(&config);
 	// process_args;
-	jsh_repl(stdin);
+	jsh_repl(stdin, false);
 	return EXIT_SUCCESS;
 }
 

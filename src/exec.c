@@ -29,7 +29,7 @@ int ext_exec(int argc, char **argv)
 		// Child process
 		if (execvp(argv[0], argv) == -1)
 		{
-			perror("jsh");
+			perror(argv[0]);
 		}
 		exit(EXIT_FAILURE);
 	}
