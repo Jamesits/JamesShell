@@ -49,5 +49,5 @@ int ext_exec(int argc, char **argv)
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 		config.last_return_value = WEXITSTATUS(status);
 	}
-	return 1;
+	return 0;
 }
