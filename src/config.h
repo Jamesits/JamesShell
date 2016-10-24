@@ -9,7 +9,7 @@
 #define VERSION_MINOR 0
 #define VERSION_REVISION 1
 
-#define DEFAULT_SHELL_PROMPT "Jsh> "
+#define DEFAULT_PS1 "Jsh> "
 
 #define READ_BUF_SIZE 1024
 #define TOKEN_SPLIT_BUF_SIZE 16
