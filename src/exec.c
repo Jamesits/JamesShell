@@ -5,7 +5,7 @@ int int_exec(int argc, char **argv)
 	if (argv == NULL)
 	{
 		empty_input_wrapper(argc, argv);
-		return 0;
+		return 1;
 	}
 	if (!argc)
 		while (argv[argc++]);
@@ -31,11 +31,12 @@ int ext_exec(int argc, char **argv)
 		{
 			perror("jsh cannot execvp");
 		}
-		else if (pid < 0)
-		{
-			// Error forking
-			perror("jsh cannot fork");
-		}
+		exit(EXIT_FAILURE);
+	}
+	else if (pid < 0)
+	{
+		// Error forking
+		perror("jsh cannot fork");
 	}
 	else
 	{
@@ -43,7 +44,7 @@ int ext_exec(int argc, char **argv)
 		do {
 			wpid = waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		config.last_return_value = WEXITSTATUS(status);
 	}
 	return 1;
 }
-

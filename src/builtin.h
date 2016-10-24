@@ -3,7 +3,7 @@
 #define __BUILTINS_H__
 
 int jsh_exit(int argc, char **argv);
-int jsh_version(int argc, char **argv);
+int jsh_about(int argc, char **argv);
 int int_exec(int argc, char **argv);
 int ext_exec(int argc, char **argv);
 int empty_input_wrapper(int argc, char **argv);

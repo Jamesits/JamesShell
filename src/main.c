@@ -1,34 +1,37 @@
 #include "stdafx.h"
 
-shared_config status;
+shared_config config;
 
-void initialize_status(shared_config *s)
+void initialize_config(shared_config *s)
 {
 	s->f_in = stdin;
 	s->f_out = stdout;
 	s->f_err = stderr;
-	s->quit = false;
+	s->shuttingdown = false;
 	s->last_return_value = 0;
 }
 
 int main(int argc, char **argv)
 {
 	// load config;
-	initialize_status(&status);
+	initialize_config(&config);
 	// process_args;
 	// enter REPL loop;
-	while(!status.quit)
-	{
+	do {
 		printf(DEFAULT_SHELL_PROMPT);
 		char *line = freadline(stdin);
 
-		printf("Get line: %s\n", line);
-
-	      	char **token = tokenize_line(line);
+		// fprintf(stderr, "Get line: %s\n", line);
+	    char **token = tokenize_line(line);
+		
+		// for (int i = 0; token[i]; ++i) fprintf(stderr, "Token #%d: %s\n", i, token[i]);
+		fprintf(stderr, "Before exec: quit = %d\n", config.shuttingdown);
 		exec(token);
-		free(line);
+		fprintf(stderr, "After exec: quit = %d\n", config.shuttingdown);
+
 		free(token);
-	}
+		free(line);
+	} while(!config.shuttingdown) ;
 	// check return status;
 	
 	return EXIT_SUCCESS;

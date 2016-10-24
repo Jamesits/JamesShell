@@ -14,7 +14,7 @@ CC = gcc
 CFLAGS = -O0 -Wall -Wextra -Wno-unused-parameter -g
 # ARG = 1
 # EXEC_PREFIX = 
-RM_FLAGS = -I
+# RM_FLAGS = -I
 
 : $(PROGRAM)
 
