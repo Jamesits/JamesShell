@@ -2,6 +2,15 @@
 
 shared_config config;
 
+int main(int argc, char **argv)
+{
+	// load config;
+	initialize_config(&config);
+	// process_args;
+	jsh_repl(stdin);
+	return EXIT_SUCCESS;
+}
+
 void initialize_config(shared_config *c)
 {
 	c->f_in = stdin;
@@ -11,21 +20,17 @@ void initialize_config(shared_config *c)
 	c->last_return_value = 0;
 }
 
-int main(int argc, char **argv)
+void jsh_repl(FILE *input, bool quiet)
 {
-	// load config;
-	initialize_config(&config);
-	// process_args;
-	// enter REPL loop;
+	// REPL loop;
 	do {
-		printf(DEFAULT_PS1);
+		if (!quiet) printf(DEFAULT_PS1);
 		char *line = freadline(stdin);
 		if (!line)
 		{
 			config.shuttingdown = true;
 			continue;
 		}
-
 		// fprintf(stderr, "Get line: %s\n", line);
 	    char **token = tokenize_line(line);
 
@@ -37,7 +42,5 @@ int main(int argc, char **argv)
 		// check return status;
 		// fprintf(stderr, "Return value: %d\n", config.last_return_value);
 
-	} while(!config.shuttingdown) ;
-
-	return EXIT_SUCCESS;
+	} while(!config.shuttingdown);
 }

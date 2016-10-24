@@ -12,7 +12,7 @@
 #include "config.h"
 #include "util.h"
 #include "main.h"
-#include "jsh.h"
+#include "jshcore.h"
 #include "builtin.h"
 
 #endif

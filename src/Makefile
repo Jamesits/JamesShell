@@ -1,5 +1,5 @@
-SRC = builtin.c  exec.c  jsh.c  main.c
-PROGRAM = jsh.out
+SRC = builtin.c  exec.c  jshcore.c  main.c
+PROGRAM = jsh
 OBJ = $(SRC:.c=.o)
 CC = gcc
 # INCLUDE = -I/usr/include/ncurses -I/usr/include/
@@ -13,7 +13,7 @@ CC = gcc
 # LINKPARAM = -lpthread -lncurses
 CFLAGS = -O0 -Wall -Wextra -Wno-unused-parameter -g
 # ARG = 1
-# EXEC_PREFIX = 
+# EXEC_PREFIX =
 # RM_FLAGS = -I
 
 : $(PROGRAM)
@@ -39,4 +39,3 @@ clean:
 	@echo "> List of files to be deleted:"
 	@echo "> $(OBJ) $(PROGRAM)"
 	@rm $(RM_FLAGS) $(OBJ) $(PROGRAM)
-
