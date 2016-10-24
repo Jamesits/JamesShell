@@ -13,6 +13,7 @@ typedef struct shared_config {
 extern shared_config config;
 void initialize_config(shared_config *c);
 void jsh_repl(FILE *input, bool quiet);
+int load_script(char *file);
 int main(int argc, char **argv);
 
 #endif /* end of include guard: __MAIN_H__ */

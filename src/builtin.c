@@ -12,9 +12,7 @@ int jsh_cd(int argc, char **argv)
 {
     if (argc == 0)
     {
-        if (chdir(getenv("HOME")) != 0) {
-            perror("cd");
-        }
+        fprintf(config.f_err, "cd: Tilde expension not implemented");
     }
     else {
         if (chdir(argv[1]) != 0) {
@@ -33,7 +31,7 @@ int jsh_exit(int argc, char **argv)
 int jsh_about(int argc, char **argv)
 {
 	fprintf(config.f_out,
-		SHELL_NAME "(" SHELL_SHORT_NAME ")\n"
+		SHELL_NAME " (" SHELL_SHORT_NAME ")\n"
 		"Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n\n"
 		SHELL_DESCRIPTION "\n"
         SHELL_URL "\n\n"

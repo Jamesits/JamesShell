@@ -16,7 +16,7 @@ char *freadline(FILE *src)
 			read_buffer = realloc(read_buffer, buffer_size += READ_BUF_SIZE * sizeof(char));
 			if (!read_buffer)
 			{
-				fprintf(stderr, "Cannot allocate memory\n");
+				fprintf(config.f_err, "Cannot allocate memory\n");
 				free(rbak);
 				return NULL;
 			}
@@ -62,7 +62,7 @@ char **tokenize_line(char *line)
 			if (!tok_buf)
 			{
 				free(tbak);
-				fprintf(stderr, "Cannot allocate memory");
+				fprintf(config.f_err, "Cannot allocate memory");
 				return NULL;
 			}
 		}
@@ -79,6 +79,6 @@ int exec(char **tokens)
 	if (int_exec(0, tokens)) {}
 	// check if it is an external program, if true, execute it
 	else if (ext_exec(0, tokens)) {}
-	else fprintf(stderr, "Not an internal or external command\n");
+	else fprintf(config.f_err, "Not an internal or external command\n");
 	return 0;
 }
