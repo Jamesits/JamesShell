@@ -9,9 +9,11 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
+#include "config.h"
+#include "util.h"
+#include "main.h"
 #include "jsh.h"
 #include "icmd.h"
 #include "builtin.h"
 
 #endif
-

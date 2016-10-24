@@ -4,7 +4,7 @@ internal_command builtins[] = {
         BUILTIN_DEF(jsh_exit, "exit"),
         BUILTIN_DEF(ext_exec, "call"),
         BUILTIN_DEF(jsh_about, "about"),
-	{0, 0, 0}
+        {0, 0, 0}
 };
 
 int jsh_exit(int argc, char **argv)
@@ -16,10 +16,10 @@ int jsh_exit(int argc, char **argv)
 
 int jsh_about(int argc, char **argv)
 {
-	fprintf(config.f_out, 
-		SHELL_NAME 
-		" Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n" 
-		SHELL_DESCRIPTION "\n" 
+	fprintf(config.f_out,
+		SHELL_NAME
+		" Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n"
+		SHELL_DESCRIPTION "\n"
 		);
 	return 0;
 }

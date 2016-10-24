@@ -24,7 +24,7 @@ char *freadline(FILE *src)
 		// read a char
 		current_char = fgetc(src);
 		// if reached line end then fill buffer end 0 and return
-		if (current_char == EOF || current_char == '\n') 
+		if (current_char == EOF || current_char == '\n')
 		{
 			current_char = 0;
 			buffer_end = true;

@@ -2,6 +2,16 @@
 #ifndef __BUILTINS_H__
 #define __BUILTINS_H__
 
+typedef int(*command_func)(int argc, char **argv);
+
+typedef struct icmd {
+	command_func function;
+	size_t length;
+	char *command;
+} internal_command;
+
+#define BUILTIN_DEF(FUNC, CMD) { FUNC, sizeof(CMD), CMD }
+
 int jsh_exit(int argc, char **argv);
 int jsh_about(int argc, char **argv);
 int int_exec(int argc, char **argv);
