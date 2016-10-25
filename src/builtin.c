@@ -33,10 +33,15 @@ int jsh_about(int argc, char **argv)
 {
 	fprintf(config.f_out,
 		SHELL_NAME " (" SHELL_SHORT_NAME ")\n"
-		"Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n\n"
+		"Version " STR(VERSION_MAJOR) "." STR(VERSION_MINOR) "." STR(VERSION_REVISION) "\n"
 		SHELL_DESCRIPTION "\n"
-        SHELL_URL "\n\n"
+        SHELL_URL "\n\nBuiltin commands: "
 		);
+	if (builtins_count() > 0) fprintf(config.f_out, "%s", builtins[0].command);
+	for (int i = 1; i < builtins_count(); ++i)
+		fprintf(config.f_out, " %s", builtins[i].command);
+	fputc('\n', config.f_out);
+
 	return 0;
 }
 
