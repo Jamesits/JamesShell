@@ -13,7 +13,7 @@ char *freadline(FILE *src)
 		if (buffer_index >= buffer_size)
 		{
 			char *rbak = read_buffer;
-			read_buffer = realloc(read_buffer, buffer_size += READ_BUF_SIZE * sizeof(char));
+			read_buffer = realloc(read_buffer, (buffer_size += READ_BUF_SIZE) * sizeof(char));
 			if (!read_buffer)
 			{
 				fprintf(config.f_err, "Cannot allocate memory\n");
@@ -58,7 +58,7 @@ char **tokenize_line(char *line)
 		if (tok_buf_index >= tok_buf_size)
 		{
 			char **tbak = tok_buf;
-			tok_buf = realloc(tok_buf, tok_buf_size += TOKEN_SPLIT_BUF_SIZE);
+			tok_buf = realloc(tok_buf, (tok_buf_size += TOKEN_SPLIT_BUF_SIZE) * sizeof(char *));
 			if (!tok_buf)
 			{
 				free(tbak);

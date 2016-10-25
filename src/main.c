@@ -65,23 +65,22 @@ void jsh_repl(FILE *input, bool quiet)
 			config.shuttingdown = true;
 			continue;
 		}
-		fprintf(stderr, "[input stream]Get line: %s\n", line);
+		// fprintf(stderr, "[input stream]Get line: %s\n", line);
 		char **token = tokenize_line(line);
-		for (int i = 0; token[i]; ++i) fprintf(stderr, "[tokenizer]Token #%d: %s\n", i, token[i]); fprintf(stderr, "\n");
+		// for (int i = 0; token[i]; ++i)
+		// 	fprintf(stderr, "[tokenizer]Token #%d: %s\n", i, token[i]);
+		// fprintf(stderr, "\n");
 		if (token)
 		{
 
 			exec(token);
-			
 			// check return status;
-			fprintf(stderr, "Return value: %d\n", config.last_return_value);
-			if (token) free(token);
+			// fprintf(stderr, "Return value: %d\n", config.last_return_value);
+			free(token);
 			token = NULL;
 		} else {
 			fprintf(config.f_err, "jsh: tokenizer fatal\n");
 		}
 		free(line);
-
-
 	} while(!config.shuttingdown);
 }
