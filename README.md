@@ -24,6 +24,7 @@ A simple and naive UNIX shell.
     + `./.jsh_profile`
     + `./.jshrc`
  * [ ] Environment variables support
+ * [ ] Comment support (ignore `#`)
  * [ ] POSIX style expansion (tilde, etc.)
  * [ ] Pipe
  * [x] Scripting: invoke as `jsh script1 [script2 [script3 ...]]`
