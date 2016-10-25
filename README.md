@@ -26,8 +26,9 @@ A simple and naive UNIX shell.
  * [ ] Environment variables support
  * [ ] POSIX style expansion (tilde, etc.)
  * [ ] Pipe
- * [ ] Scripting
+ * [x] Scripting: invoke as `jsh script1 [script2 [script3 ...]]`
  * [ ] Colored terminal support
+ * [ ] Arguments
 
 # About
 

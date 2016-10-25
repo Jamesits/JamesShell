@@ -4,13 +4,23 @@ shared_config config;
 
 int main(int argc, char **argv)
 {
-	// load config;
+	// load config
 	initialize_config(&config);
+	// load rc files
 	load_script("/etc/jshrc");
 	load_script(".jsh_profile");
 	load_script(".jshrc");
-	// process_args;
-	jsh_repl(config.f_in, false);
+	// process_args
+	if (argc > 1)
+	{
+		// enter scripting mode
+		for (int i = 1; i < argc; ++i)
+			if (load_script(argv[i]))
+				fprintf(config.f_err, "jsh: cannot execute script %s\n", argv[i]);
+	} else {	
+		// enter REPL
+		jsh_repl(config.f_in, false);
+	}
 	return EXIT_SUCCESS;
 }
 
