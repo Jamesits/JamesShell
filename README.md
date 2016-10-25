@@ -14,12 +14,15 @@ A simple and naive UNIX shell.
     + [ ] Native Windows
     + [ ] Lagecy UNIX
     + [ ] Plan9
- * [x] Builtin commands:
+ * Builtin commands
     + [x] `exit`
-    + [x] `cd`
+    + [ ] `cd` (partial, no tilde expansion and must be followed by a path)
     + [x] `about`
  * [x] Execution of external executables
- * [x] `/etc/jshrc`, `./.jsh_profile`, `./.jshrc` are executed on launch
+ * [ ] rc files support (partial, no tilde expansion so put them under pwd)
+    + `/etc/jshrc`
+    + `./.jsh_profile`
+    + `./.jshrc`
  * [ ] Environment variables support
  * [ ] POSIX style expansion (tilde, etc.)
  * [ ] Pipe
